@@ -1,4 +1,4 @@
-var commands = '19 20 + DUP + 60 + DUP DUP 12 +'
+var commands = '19 20 + DUP + 60 + DUP + 12 +'
 
 function process(stream) {
 
@@ -18,7 +18,7 @@ function process(stream) {
             if (topOfStack == -1) return - 1
            
             stack.pop()
-            topOfStack--
+            topOfStack --
         
         } else if (token == 'DUP') {
         
@@ -26,7 +26,7 @@ function process(stream) {
         
             value = stack[topOfStack]
         
-            topOfStack++
+            topOfStack ++
             stack.push(value)
         
         } else if (token == '+') {
@@ -40,7 +40,7 @@ function process(stream) {
         
             stack.pop()
             stack.pop()
-            topOfStack--
+            topOfStack --
             stack.push(valueA + valueB)
         
         } else if (token == '-') {
@@ -54,23 +54,25 @@ function process(stream) {
         
             stack.pop()
             stack.pop()
-            topOfStack--
+            topOfStack --
             stack.push(valueA - valueB)
         
         } else {
         
-            topOfStack++
+            topOfStack ++
             stack.push(+token)
 
         }
 
     }
 
+    console.log(commandsArray)
     console.log(stack)
 
     return stack[topOfStack]
 
 }
+
 
 var result = process(commands)
 
