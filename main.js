@@ -12,6 +12,7 @@ function process(stream) {
     let valueB = 0
 
     for (const token of commandsArray) {
+
         if (token == 'POP') {
         
             if (topOfStack == -1) return -1
